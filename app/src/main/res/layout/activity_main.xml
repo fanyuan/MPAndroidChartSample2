@@ -23,11 +23,17 @@
         android:textAllCaps="false"
         android:text="拆线图"
         android:onClick="toLineChart"/>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="LineChartActivity3"
+        android:onClick="toLineChartActivity3"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="网状图"
         android:onClick="toRadarChart"/>
+
 </LinearLayout>

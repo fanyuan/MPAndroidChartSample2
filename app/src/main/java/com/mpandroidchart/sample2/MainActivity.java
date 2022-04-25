@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public void toRadarChart(View view) {
         startActivity(new Intent(this,RadarChartActivity.class));
     }
+
+    public void toLineChartActivity3(View view) {
+        startActivity(new Intent(this,LineChartActivity3.class));
+    }
 }

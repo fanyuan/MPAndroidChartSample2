@@ -7,6 +7,9 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class LineChartActivity3 extends AppCompatActivity {
+    private static final String TAG = "ddebug";
     LineChart lineChart;
 
     @Override
@@ -22,6 +26,19 @@ public class LineChartActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_line_chart_activity2);
         lineChart =  findViewById(R.id.line_chart);
         showLineChart(lineChart);
+
+        lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                Log.d(TAG,"---onValueSelected---getDataIndex" + h.getDataIndex() + " --- e = " + e.toString());
+                Log.d(TAG,"---onValueSelected---e.getX() = " + e.getX() + " --- e.getY() = " + e.getY());
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
     }
     private void showLineChart(LineChart lineChart) {
 

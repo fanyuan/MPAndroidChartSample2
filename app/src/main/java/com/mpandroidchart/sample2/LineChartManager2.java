@@ -14,6 +14,8 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.highlight.ChartHighlighter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
@@ -144,6 +146,12 @@ public class LineChartManager2 {
 //        lineDataSet.setFormSize(15.f);
         //线模式为圆滑曲线（默认折线）
         lineDataSet.setMode(LineDataSet.Mode.LINEAR);
+
+        lineDataSet.setHighlightEnabled(false);
+//        lineDataSet.setHighLightColor(lineChart.getContext().getResources().getColor(R.color.black));
+//        lineDataSet.setDrawHighlightIndicators(true);
+
+        //lineChart.setHighlighter(new ChartHighlighter());
     }
 
     /**

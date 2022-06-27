@@ -27,6 +27,8 @@ public class LineChartActivity3 extends AppCompatActivity {
         lineChart =  findViewById(R.id.line_chart);
         showLineChart(lineChart);
 
+
+
         lineChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
@@ -36,7 +38,7 @@ public class LineChartActivity3 extends AppCompatActivity {
 
             @Override
             public void onNothingSelected() {
-
+                Log.d(TAG,"---onNothingSelected---");
             }
         });
     }

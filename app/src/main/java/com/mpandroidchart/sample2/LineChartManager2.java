@@ -1,8 +1,10 @@
 package com.mpandroidchart.sample2;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -76,7 +78,6 @@ public class LineChartManager2 {
             legend.setForm(Legend.LegendForm.NONE);
         }
 
-
         //XY轴的设置
         //X轴设置显示位置在底部
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -86,8 +87,6 @@ public class LineChartManager2 {
 
         xAxis.setAxisMaximum(150);
 
-
-
         xAxis.setDrawGridLines(true);
         xAxis.setGridColor(Color.parseColor("#d8d8d8"));
         //设置最后和第一个标签不超出x轴
@@ -96,6 +95,9 @@ public class LineChartManager2 {
         xAxis.setAxisLineWidth(1.0f);
         xAxis.setAxisLineColor(Color.parseColor("#d5d5d5"));
         //xAxis.setDrawLabels(true);
+        xAxis.setGridColor(lineChart.getContext().getResources().getColor(R.color.teal_700));
+        //设置横轴字体颜色
+        xAxis.setTextColor(lineChart.getContext().getResources().getColor(R.color.teal_200));
 
         //保证Y轴从0开始，不然会上移一点
         leftAxis.setAxisMinimum(0f);
@@ -106,9 +108,17 @@ public class LineChartManager2 {
         leftAxis.setDrawGridLines(true);//false
 //        设置网格为虚线
         //leftAxis.enableGridDashedLine(10f, 10f, 0f);
-        leftAxis.setGridColor(Color.parseColor("#000000"));//"#d8d8d8"
+        //Color.parseColor("#000000") //"#d8d8d8"
+        leftAxis.setGridColor(lineChart.getContext().getResources().getColor(R.color.teal_700));
         leftAxis.setAxisLineColor(Color.parseColor("#d5d5d5"));
         rightAxis.setAxisMinimum(0f);
+        //设置纵轴字体颜色
+        leftAxis.setTextColor(lineChart.getContext().getResources().getColor(R.color.teal_200));
+
+        //.setColor(lineChart.getContext().getResources().getColor(R.color.teal_200));
+        Paint p = lineChart.getPaint(Chart.PAINT_LEGEND_LABEL);
+
+        Logger.d(lineChart.getContext()," paint = " + p);
 
         //leftAxis.setDrawLabels(true);
         //rightAxis.setDrawLabels(true);
@@ -127,11 +137,13 @@ public class LineChartManager2 {
      */
     private void initLineDataSet(LineDataSet lineDataSet, int color, boolean mode) {
         lineDataSet.setColor(color);
-        lineDataSet.setCircleColor(color);
+        //color
+        lineDataSet.setCircleColor(Color.parseColor("#00ff0000"));
         lineDataSet.setLineWidth(2f);
         lineDataSet.setCircleRadius(3f);
         //设置曲线值的圆点是实心还是空心
-        lineDataSet.setDrawCircleHole(true);
+        //true
+        lineDataSet.setDrawCircleHole(false);
         lineDataSet.setValueTextSize(9f);
 
         // 不显示具体值
@@ -147,8 +159,9 @@ public class LineChartManager2 {
         //线模式为圆滑曲线（默认折线）
         lineDataSet.setMode(LineDataSet.Mode.LINEAR);
 
-        lineDataSet.setHighlightEnabled(false);
-//        lineDataSet.setHighLightColor(lineChart.getContext().getResources().getColor(R.color.black));
+        lineDataSet.setHighlightEnabled(true);
+        //lineChart.getContext().getResources().getColor(R.color.black)
+        lineDataSet.setHighLightColor(Color.parseColor("#00ff0000"));
 //        lineDataSet.setDrawHighlightIndicators(true);
 
         //lineChart.setHighlighter(new ChartHighlighter());

@@ -26,9 +26,15 @@
     </FrameLayout>
 
     <View
+        android:layout_width="3dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/black"/>
+
+    <View
         android:id="@+id/dot"
         android:layout_width="@dimen/dot_width"
         android:layout_height="@dimen/dot_height"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/dot_red"/>
+        android:background="@drawable/dot_green"/>
 </LinearLayout>

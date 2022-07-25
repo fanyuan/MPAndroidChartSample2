@@ -10,6 +10,7 @@ import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LimitLine;
+import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -120,6 +121,11 @@ public class LineChartManager2 {
 
         Logger.d(lineChart.getContext()," paint = " + p);
 
+        // 设置MarkerView
+        //MarkerView mv = new MyMarkerView(lineChart.getContext(),R.layout.content_marker_view);
+        MarkerView mv = new MyMarkerView(lineChart.getContext(),R.layout.content_marker_view2);
+        lineChart.setMarkerView(mv);
+
         //leftAxis.setDrawLabels(true);
         //rightAxis.setDrawLabels(true);
         // 线跟数据都不显示
@@ -161,8 +167,8 @@ public class LineChartManager2 {
 
         lineDataSet.setHighlightEnabled(true);
         //lineChart.getContext().getResources().getColor(R.color.black)
-        lineDataSet.setHighLightColor(Color.parseColor("#00ff0000"));
-//        lineDataSet.setDrawHighlightIndicators(true);
+        //lineDataSet.setHighLightColor(Color.parseColor("#00ff0000"));
+        //lineDataSet.setDrawHighlightIndicators(true);
 
         //lineChart.setHighlighter(new ChartHighlighter());
     }
